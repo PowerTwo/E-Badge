@@ -3,18 +3,18 @@ An Arduino sketch example shows how to communicate with a LoRaWAN gateway. When 
 
 **Board overview**
 
-![Alt text](image.png)
+![Alt text](Board_Overview.PNG)
 
 **Connection of ESP32 with RAK3172 SiP (LoRaWAN SiP) and LC76F Module (GNSS Module)**
 
-![Alt text](image-9.png)
+![Alt text](ConnectionsOfESP32.PNG)
 
 # Board Manager
 The example used [espressif/arduino-esp32](https://docs.espressif.com/projects/arduino-esp32/en/latest/getting_started.html). Refer to this [Getting Started](https://docs.espressif.com/projects/arduino-esp32/en/latest/getting_started.html) for installation guide of this core.
 
 To compile the example, select board manager as followings in ArduinoIDE
 
-![Alt text](image-2.png)
+![Alt text](BoardManagers.PNG)
 
 # Libraries
 
@@ -32,25 +32,25 @@ ABP (Activation By Personalization) activation mode is used. For more details ab
 
 To create and retrieve access information to the LoRaWAN network for a new device, access to https://eu1.cloud.thethings.network/console/applications. Click "Create application"
 
-![Alt text](image-3.png)
+![Alt text](CreateApplication.PNG)
 
-![Alt text](image-4.png)
+![Alt text](CreateApplication2.PNG)
 
 Access the newly created application to create a new end device, click "Register end device"
 
-![Alt text](image-5.png)
+![Alt text](RegisterEndDevice.PNG)
 
 On the Register end device console, choose parameters to set up for new device
 
-![Alt text](TTNv3-EndDevice.JPG)
+![Alt text](RegisterEndDevice2.PNG)
 
 Access the newly created end device to get the keys for LoRaWAN network
 
-![Alt text](image-6.png)
+![Alt text](ShowKeys.PNG)
 
 To General settings => Expand for Network Layer => Advanced MAC settings => Tick “Resets frame counter” checkbox
 
-![Alt text](General-Settings-1.PNG)
+![Alt text](ResetFrameCounter.PNG)
 
 # Configuration commands
 
