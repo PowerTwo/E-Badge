@@ -3,7 +3,7 @@ An Arduino sketch example shows how to communicate with a LoRaWAN gateway. When 
 
 **Board overview**
 
-![Alt text](Board_Overview.PNG)
+<img src="docs/Board_Overview.PNG" alt="docs/Board_Overview.PNG" width="200"/>
 
 **Connection of ESP32 with RAK3172 SiP (LoRaWAN SiP) and LC76F Module (GNSS Module)**
 
