@@ -3,18 +3,18 @@ An Arduino sketch example shows how to communicate with a LoRaWAN gateway. When 
 
 **Board overview**
 
-<img src="docs/Board_Overview.PNG" alt="docs/Board_Overview.PNG" width="200"/>
+<img src="docs/Board_Overview.PNG" alt="docs/Board_Overview.PNG" width="500"/>
 
 **Connection of ESP32 with RAK3172 SiP (LoRaWAN SiP) and LC76F Module (GNSS Module)**
 
-![Alt text](ConnectionsOfESP32.PNG)
+<img src="docs/ConnectionsOfESP32.PNG" alt="docs/ConnectionsOfESP32.PNG" width="500"/>
 
 # Board Manager
 The example used [espressif/arduino-esp32](https://docs.espressif.com/projects/arduino-esp32/en/latest/getting_started.html). Refer to this [Getting Started](https://docs.espressif.com/projects/arduino-esp32/en/latest/getting_started.html) for installation guide of this core.
 
 To compile the example, select board manager as followings in ArduinoIDE
 
-![Alt text](BoardManagers.PNG)
+<img src="docs/BoardManagers.PNG" alt="docs/BoardManagers.PNG" width="500"/>
 
 # Libraries
 
@@ -32,25 +32,25 @@ ABP (Activation By Personalization) activation mode is used. For more details ab
 
 To create and retrieve access information to the LoRaWAN network for a new device, access to https://eu1.cloud.thethings.network/console/applications. Click "Create application"
 
-![Alt text](CreateApplication.PNG)
+<img src="docs/CreateApplication.PNG" alt="docs/CreateApplication.PNG" width="1000"/>
 
-![Alt text](CreateApplication2.PNG)
+<img src="docs/CreateApplication2.PNG" alt="docs/CreateApplication2.PNG" width="1000"/>
 
 Access the newly created application to create a new end device, click "Register end device"
 
-![Alt text](RegisterEndDevice.PNG)
+<img src="docs/RegisterEndDevice.PNG" alt="docs/RegisterEndDevice.PNG" width="1000"/>
 
 On the Register end device console, choose parameters to set up for new device
 
-![Alt text](RegisterEndDevice2.PNG)
+<img src="docs/RegisterEndDevice2.PNG" alt="docs/RegisterEndDevice2.PNG" width="800"/>
 
 Access the newly created end device to get the keys for LoRaWAN network
 
-![Alt text](ShowKeys.PNG)
+<img src="docs/ShowKeys.PNG" alt="docs/ShowKeys.PNG" width="650"/>
 
 To General settings => Expand for Network Layer => Advanced MAC settings => Tick “Resets frame counter” checkbox
 
-![Alt text](ResetFrameCounter.PNG)
+<img src="docs/ResetFrameCounter.PNG" alt="docs/ResetFrameCounter.PNG" width="1000"/>
 
 # Configuration commands
 
