@@ -3,7 +3,7 @@ An Arduino sketch example shows how to communicate with a LoRaWAN gateway. When 
 
 **Board overview**
 
-<img src="docs/Board_Overview.PNG" alt="docs/Board_Overview.PNG" width="800"/>
+<img src="docs/Board_Overview.PNG" alt="docs/Board_Overview.PNG" width="500"/>
 
 **Functions of buttons and LED lights**
 
