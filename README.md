@@ -3,9 +3,23 @@ An Arduino sketch example shows how to communicate with a LoRaWAN gateway. When 
 
 **Board overview**
 
-<img src="docs/Board_Overview.PNG" alt="docs/Board_Overview.PNG" width="500"/>
+<img src="docs/Board_Overview.PNG" alt="docs/Board_Overview.PNG" width="800"/>
 
-Switch power to choose between battery and TypeC. To select battery, turn the switch to ON. To select TypeC, flip the switch away from the word ON. Note that code can only be loaded when selecting source from typeC
+**Functions of buttons and LED lights**
+
+|  Component  |                         Function                          |
+| :---------: | :-------------------------------------------------------: |
+|   B_ESP1    |            Used to put ESP32-C3 into boot mode            |
+|   ESP_EN1   |                     Reseting ESP32-C3                     |
+|    B_RAK    |            Used to put RAK3172 into boot mode             |
+|    R_RAK    |                     Reseting RAK3172                      |
+| USER_BUTTON |                  Programmed by the user                   |
+|   SW_PWR1   |                  Selecting power source                   |
+|     D5      |           Turns on when powered by TypeC power            |
+|     D1      |                  Programmed by the user                   |
+|     D2      | Flashes when device has determined its location from GNSS |
+
+BATT1 connecter is used to supply power from the battery to the device. SW_PWR1 to choose between battery and TypeC. To select battery, turn the switch to ON. To select TypeC, flip the switch away from the word ON. Note that code can only be loaded when selecting source from typeC.
 
 **Connection of ESP32 with RAK3172 SiP (LoRaWAN SiP) and LC76F Module (GNSS Module)**
 
