@@ -5,6 +5,8 @@ An Arduino sketch example shows how to communicate with a LoRaWAN gateway. When 
 
 <img src="docs/Board_Overview.PNG" alt="docs/Board_Overview.PNG" width="500"/>
 
+Switch power to choose between battery and TypeC. To select battery, turn the switch to ON. To select TypeC, flip the switch away from the word ON. Note that code can only be loaded when selecting source from typeC
+
 **Connection of ESP32 with RAK3172 SiP (LoRaWAN SiP) and LC76F Module (GNSS Module)**
 
 <img src="docs/ConnectionsOfESP32.PNG" alt="docs/ConnectionsOfESP32.PNG" width="500"/>
