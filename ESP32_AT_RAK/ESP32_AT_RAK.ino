@@ -32,6 +32,15 @@ uint8_t payload_length;
 uint32_t lat = 0;
 uint32_t lng = 0;
 
+// Rain Gauge battery
+#define LS_ADC_AREF 3.0f
+#define LS_BATVOLT_R1 1.0f 
+#define LS_BATVOLT_R2 2.0f
+#define LS_BATVOLT_PIN 4
+
+uint16_t voltage_adc;
+uint16_t voltage;
+
 //Create parameter to get data from MicroNMEA library
 int timezone = 7 ;
 int  year; int mon; int day; int hr; int minute; double sec;
@@ -61,6 +70,9 @@ void setup()
   //Set interrupt for User button
   pinMode(USER_BUTTON, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(USER_BUTTON), i_button_isr, RISING);
+
+  //set the resolution to 12 bits (0-4096)
+  analogReadResolution(12);
 
   //Set output mode for LED
   pinMode(LED, OUTPUT); // LED
@@ -98,7 +110,7 @@ void setup()
   
   delay(500);
   Serial1.println("AT+JOIN=1:1:10:8");
-  delay(10000);
+  delay(1000);
   Serial1.end();
 
   //Set output mode for LC76F
@@ -110,6 +122,12 @@ void loop()
 {
   //When flag of user button is enable
   if (button_flag > 0){
+    //Blink LED after Send packet
+    digitalWrite(LED, HIGH);   
+    delay(200);                    
+    digitalWrite(LED, LOW);    
+    delay(200);  
+
     //OFF serial port of LC76F and ON serial port of RAK3172 SiP
     mySerial2.end();
     delay(1000);
@@ -119,6 +137,13 @@ void loop()
     //Get data from LC76F
     GPS_showData();
     delay(1000);
+
+    //Battery variables
+    voltage_adc = (uint16_t)analogRead(LS_BATVOLT_PIN);
+    voltage = (uint16_t)((LS_ADC_AREF / 4.096) * (LS_BATVOLT_R1 + LS_BATVOLT_R2) / LS_BATVOLT_R2 * (float)voltage_adc);
+  
+    Serial.print("Voltage: ");
+    Serial.println(voltage);
     
     //Send LoRaWAN packet to Gateway
     Uplink_message();
@@ -131,15 +156,9 @@ void loop()
         Serial.write(Serial1.read()); 
     }
 
-    //Blink LED after Send packet
-    digitalWrite(LED, HIGH);   
-    delay(200);                    
-    digitalWrite(LED, LOW);    
-    delay(200);  
-
     //Assign the value back to the flag
     button_flag=0;
-    delay(10000);
+    delay(5000);
 
     //OFF serial port of RAK3172 SiP and ON serial port of LC76F
     Serial1.end();
@@ -276,6 +295,8 @@ bool Uplink_message()
     payload[payload_length++] = (uint8_t) (lng >> 8);
     payload[payload_length++] = (uint8_t) (lng >> 16);
     payload[payload_length++] = (uint8_t) (lng >> 24);
+    payload[payload_length++] = (uint8_t)(voltage >> 8) & 0xff;
+    payload[payload_length++] = (uint8_t)voltage & 0xff;
     
     Serial1.print("AT+SEND=2:");
     for(int i = 0; i < payload_length; i++){
